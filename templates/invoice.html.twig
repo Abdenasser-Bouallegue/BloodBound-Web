@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+       <!-- endinject -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        {% block css %}
+                           <!-- inject:css-->
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/bootstrap/bootstrap.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/daterangepicker.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/fontawesome.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/footable.standalone.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/fullcalendar@5.2.0.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/jquery-jvectormap-2.0.5.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/jquery.mCustomScrollbar.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/leaflet.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/line-awesome.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/magnific-popup.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/MarkerCluster.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/MarkerCluster.Default.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/select2.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/slick.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/star-rating-svg.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/trumbowyg.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('BackOffice/assets/vendor_assets/css/wickedpicker.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('style.css') }}">
+
+            <!-- endinject -->
+        {% endblock %}
+
+
+    </head>
+
+    <body class="">
+    
+      <div class="container mx-auto pt-4">
+
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="payment-invoice global-shadow radius-xl w-100 mb-30">
+                     <div class="payment-invoice__body">
+                        <div class="payment-invoice-address d-flex justify-content-sm-between">
+                           <div class="payment-invoice-logo">
+                              <a href="index.html">
+                                 <img class="dark" src="{{asset('BackOffice/img/BBLogo.png')}}" alt="logo" style="max-width:800px;">
+
+                              </a>
+                           </div>
+                           <div class="payment-invoice-address__area">
+                              <address>Admin Company<br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107, USA<br>
+                                 Reg.
+                                 number : 245000003513</address>
+                           </div>
+                        </div><!-- End: .payment-invoice-address -->
+                        <div class="payment-invoice-qr d-flex justify-content-between mb-40 px-xl-50 px-30 py-sm-30 py-20 ">
+                           <div class="d-flex justify-content-center mb-lg-0 mb-25">
+                              <div class="payment-invoice-qr__number">
+                                 <div class="display-3"  style="color: #DB1628;">
+                                    Invoice
+                                 </div>
+                                 <p>No : <span>#642678</span></p>
+                                 <p>Date : <span>Jan 17, 2020</span></p>
+                              </div>
+                           </div><!-- End: .d-flex -->
+                           <div class="d-flex justify-content-center mb-lg-0 mb-25">
+                           <img class="dark" src="{{asset('BackOffice/img/BBLogo.png')}}" alt="logo" style="max-width:120px; margin-left:30px;">
+                              <div class="payment-invoice-qr__code e radius-xl p-20">
+                                 
+                                 
+                              </div>
+                           </div><!-- End: .d-flex -->
+                           <div class="d-flex justify-content-center">
+                              <div class="payment-invoice-qr__address">
+                                 <p>Invoice To:</p>
+                                 <span>Stanley Jones</span><br>
+                                 <span>795 Folsom Ave, Suite 600</span><br>
+                                 <span>San Francisco, CA 94107, USA</span>
+                              </div>
+                           </div><!-- End: .d-flex -->
+                        </div><!-- End: .payment-invoice-qr -->
+                        <div class="payment-invoice-table">
+                           <div class="table-responsive">
+                              <table id="cart" class="table table-borderless">
+                                 <thead >
+                                    <tr class="product-cart__header" >
+                                       <th scope="col" style="background:#DB1628; color: #ffffff;">#</th>
+                                       <th scope="col" style="background:#DB1628;  color: #ffffff;">Product</th>
+                                       <th scope="col" class="text-end" style="background:#DB1628;  color: #ffffff;">Price Per Unit</th>
+                                       <th scope="col" class="text-end" style="background:#DB1628;  color: #ffffff;">Quantity</th>
+                                       <th scope="col" class="text-end" style="background:#DB1628;  color: #ffffff;">Order Total</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 {% for cartproduct in cartproducts %}
+                                    <tr>
+                                       <th>1</th>
+                                       <td class="Product-cart-title">
+                                          <div class="media  align-items-center">
+                                             <div class="media-body">
+                                                <h5 class="mt-0">{{ cartproduct.product.name }}</h5>
+                                                <div class="d-flex">
+                                                   <p>Size:<span>large</span></p>
+                                                   <p>color:<span>brown</span></p>
+
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </td>
+                                       <td class="unit text-end">{{ cartproduct.product.price }} pts</td>
+                                       <td class="invoice-quantity text-end">{{ cartproduct.quantity }}</td>
+                                       <td class="text-end order">{{ cartproduct.total }} pts</td>
+                                    </tr>
+                                    {% endfor %}
+                                 </tbody>
+                                 <tfoot>
+                                    <tr>
+                                       <td colspan="3"></td>
+                                       <td class="order-summery float-right border-0   ">
+                                          <div class="total">
+                                             <div class="subtotalTotal mb-0 text-end">
+                                                Subtotal : {{ basket.total }}
+                                             </div>
+                                             <div class="shipping mb-0 text-end">
+                                                Shipping charge : Free
+                                             </div>
+                                          </div>
+                                          <div class="total-money mt-2 text-end">
+                                             <h6>Total :</h6>
+                                          </div>
+                                       </td>
+
+                                       <td>
+                                          <div class="total-order float-right text-end fs-14 fw-500">
+                                             <p>{{ basket.total }} pts</p>
+                                             <p>Free Shipping</p>
+                                             <h5 class="" style="color: #DB1628;" >{{ basket.total }} pts</h5>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                 </tfoot>
+                              </table>
+                           </div>
+                        </div><!-- End: .payment-invoice-table -->
+                     </div><!-- End: .payment-invoice__body -->
+                  </div><!-- End: .payment-invoice -->
+               </div><!-- End: .col -->
+            </div>
+         </div>
+
+      </div>
+
+
+
+                    {% block js %}  
+                                                        <!-- inject:js-->
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery/jquery-ui.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/bootstrap/popper.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/bootstrap/bootstrap.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/moment/moment.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/accordion.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/apexcharts.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/autoComplete.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/Chart.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/daterangepicker.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/drawer.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/dynamicBadge.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/dynamicCheckbox.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/footable.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/fullcalendar@5.2.0.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/google-chart.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery-jvectormap-2.0.5.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery-jvectormap-world-mill-en.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery.countdown.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery.filterizr.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery.magnific-popup.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery.peity.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/jquery.star-rating-svg.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/leaflet.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/leaflet.markercluster.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/loader.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/message.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/moment.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/muuri.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/notification.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/popover.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/select2.full.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/slick.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/trumbowyg.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/vendor_assets/js/wickedpicker.min.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/apexmain.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/charts.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/drag-drop.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/footable.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/full-calendar.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/googlemap-init.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/icon-loader.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/jvectormap-init.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/leaflet-init.js') }}"></script>
+                                    <script src="{{ asset('BackOffice/assets/theme_assets/js/main.js') }}"></script>
+                                                    <!-- endinject-->
+                    {% endblock %}
+    </body>
+</html>

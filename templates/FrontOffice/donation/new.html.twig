@@ -1,0 +1,55 @@
+{% extends 'baseFront.html.twig' %}
+{% block title %}New Donation{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-breadcrumb">
+
+                    <div class="breadcrumb-main">
+
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class=" checkout wizard8 global-shadow border-0 px-sm-50 px-20 mb-30 bg-white radius-xl w-100">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5">
+                            <div class="checkout-progress-indicator ">
+
+                                <div class="card-header border-bottom-0">
+                                    <h1 class="text-capitalize fw-500 breadcrumb-title gradient-text"><strong>Make Your Donation</strong></h1>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="div">
+                                        <img class="svg w-100" src=" /FrontOffice/img/svg/emergencyDon.svg" alt="img">
+                                    </div>
+                                    <br>
+                                </div>
+                            </div><!-- checkout -->
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-sm-10">
+                            <div class="card checkout-shipping-form shadow-none h-100vh">
+                                <div class="card-body p-0">
+                                    <div class="edit-profile__body">
+                                        {{ include('FrontOffice/donation/_form.html.twig') }}
+                                    </div>
+                                </div>
+                            </div><!-- ends: card -->
+                        </div><!-- ends: col -->
+                    </div>
+                </div><!-- ends: col -->
+            </div>
+        </div><!-- End: .global-shadow-->
+    </div>
+{% endblock %}

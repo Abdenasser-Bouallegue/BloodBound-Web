@@ -1,0 +1,64 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Ajouter article {% endblock %}
+
+{% block body %}
+
+    <h1>Create new Article</h1>
+                         {{ form_start(form, { attr: {novalidate :'novalidate'}}) }}
+                                 <div class="blog-card__thumbnail">
+                                     <a href="#">
+                                        <img src="{{asset('img/1.png')}}" alt="">
+                                     </a>
+                                 </div>
+    
+                                <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.title,'Title') }}
+                                     </label><br>
+                                     {{ form_widget(form.title) }}
+                                    {{ form_errors(form.title) }}
+                                   
+                                 </div>
+                                 <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.featuredText,'featuredText') }}
+                                     </label><br>
+                                     {{ form_widget(form.featuredText) }}
+                                    {{ form_errors(form.featuredText) }}
+                                   
+                                 </div>
+                                 <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.slug,'slug') }}
+                                     </label><br>
+                                     {{ form_widget(form.slug) }}
+                                     {{ form_errors(form.slug) }}
+                                   
+                                 </div>
+                                 <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.content,'content') }}
+                                     </label><br>
+                                     {{ form_widget(form.content) }}
+                                      {{ form_errors(form.content) }}
+                                    
+                                   
+                                 </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.articleCategory,'articleCategory') }}
+                                     </label><br>
+                                     {{ form_widget(form.articleCategory) }}
+                                      {{ form_errors(form.articleCategory) }}
+                                    
+                                   
+                                 </div>
+                                  <div class="mb-3">
+                               <a href="{{path('app_article_index_Front')}}"> {{ form_widget(form.save, { 'label': 'Ajouter','attr': {'class': 'btn-danger'} }) }}</a> 
+                                 </div>
+    
+      {{ form_end(form) }}
+    
+
+{% endblock %}

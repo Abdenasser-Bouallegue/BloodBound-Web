@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Donation{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="breadcrumb-main application-ui mb-30">
+                    <div class="breadcrumb-action d-flex">
+                        <div class="d-flex align-items-center user-member__title me-sm-25 me-0">
+                            <h4 class="text-capitalize fw-500 breadcrumb-title">Donation Details</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex text-capitalize">
+                        <form method="post" action="{{ path('app_donation_edit', {'id': donation.id}) }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token('edit' ~ donation.id) }}">
+                            <button class="breadcrumb-edit btn btn-white border-0 color-primary content-center fs-12 fw-500 radius-md"> <img src="../img/svg/edit-3.svg" alt="edit-3" class="svg">edit</button></button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="projects-tab-content mb-30">
+            <div class="row">
+                <div class="col-xxl-3 col-lg-4 mb-25">
+                    <div class="progress-box px-25 pt-25 pb-10 bg-success radius-xl">
+                        <div class="progress-wrap d-flex align-items-center mb-15">
+                            <div class="progress progress-height">
+                                <div class="progress-bar bg-white" role="progressbar" style="width: 100%;" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-25">
+                        <div class="card-body">
+                            <div class="application-task d-flex align-items-center mb-25">
+
+                                <div class="application-task-icon wh-60 bg-opacity-secondary content-center">
+                                    <img class="svg wh-25 text-secondary" src="../img/svg/at.svg" alt="img">
+                                </div>
+                                <div class="application-task-content">
+                                    <h4>Phone Number</h4>
+                                    <span class="text-light fs-14 mt-1 text-capitalize">{{ donation.phoneNumber }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="application-task d-flex align-items-center mb-25">
+
+                                <div class="application-task-icon wh-60 bg-opacity-secondary content-center">
+                                    <img class="svg wh-25 text-secondary" src="../img/svg/at.svg" alt="img">
+                                </div>
+                                <div class="application-task-content">
+                                    <h4>Email</h4>
+                                    <span class="text-light fs-14 mt-1 text-capitalize">{{ donation.email }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-6 col-lg-8 mb-25">
+                    <div class="card border-0 pb-md-50 pb-15">
+                        <div class="card-header py-sm-20 py-3  px-sm-25 px-3 ">
+                            <h6>About Donation</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="about-projects">
+                                <div class="about-projects__details">
+                                    <p class="fs-15 mb-25">{{ donation.description }}</p>
+                                </div>
+                                <ul class="d-flex text-capitalize">
+                                    <li>
+                                        <span class="color-light fs-13">Donate Location</span>
+                                        <p class="color-primary fs-14 mt-1 mb-0 fw-500"> {{ donation.donLocation}}</p>
+                                    </li>
+                                    <li>
+                                        <span class="color-light fs-13">Created At</span>
+                                        <p class="color-primary fs-14 mt-1 mb-0 fw-500"> {{ donation.donationDate ? donation.donationDate|date('Y-m-d') : '' }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

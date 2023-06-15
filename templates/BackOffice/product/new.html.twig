@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Product{% endblock %}
+
+{% block body %}
+
+        <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="shop-breadcrumb">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Add Prodcut</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page">add product</li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>   
+
+         <div class="container-fluid">
+            <div class=" checkout wizard8 global-shadow border-0 px-sm-50 px-20 mb-30 bg-white radius-xl w-100">
+               <div class="row justify-content-center">
+                  <div class="col-xl-8">
+                     <div class="row justify-content-center">
+                        <div class="col-xl-5">
+                           <div class="checkout-progress-indicator ">
+                              <div class="card-header border-bottom-0">
+                                 <h4 style="color:#A40E1C;">Add New Product</h4>
+                                 <p  style="color:#37474F;">Please ensure that all required information is filled out accurately and
+                                  that each field is respected according to its specified format</p>
+                                 <div class="div">
+                                    <img class="svg w-100" src="{{ asset('BackOffice/img/products/Product quality-amico.png') }}" alt="img">
+                                 </div>
+                                  <a href="{{ path('app_product_index_admin')}}">
+                                    <div class="product-item__button d-flex mt-20 flex-wrap">
+                                                <button class="btn btn-primary btn-default btn-squared border-0 px-25" style="background:#37474F;"><i class="fa-solid fa-angle-left"></i><strong>Back to products</strong>
+                                                </button>
+                                    </div>
+                                  </a>  
+                              </div>
+                           </div><!-- checkout -->
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-sm-10">
+                           <div class="card checkout-shipping-form shadow-none h-100vh">
+                              <div class="card-header border-bottom-0 align-content-start pb-sm-0 pb-1 px-0">
+                                 
+                              </div>
+                              <div class="card-body p-0">
+                                 
+                                        {{ include('BackOffice/product/_form.html.twig', {'button_label': 'Add Product'}) }}
+                              
+                              </div>
+                           </div><!-- ends: card -->
+                        </div><!-- ends: col -->
+
+
+                     </div>
+                  </div><!-- ends: col -->
+               </div>
+            </div><!-- End: .global-shadow-->
+         </div>
+
+             
+
+{% endblock %}

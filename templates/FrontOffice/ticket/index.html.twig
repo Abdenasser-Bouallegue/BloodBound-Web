@@ -1,0 +1,227 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Users List{% endblock %}
+
+{% block body %}
+                <div class="support-ticket mt-1">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Event Ticket</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Dashboard</a></li>
+                                 <li class="breadcrumb-item"><a href="#">apps</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page">Event Ticket</li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+                  
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     
+                     <!-- PRICE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                        <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+ {% for ticket in tickets %}
+<div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+<div class="overview-content w-100">
+<div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+<div class="ap-po-details__titlebar">
+<h1>{{ticket.price}}</h1>   
+<p>Dt</p>
+</div>
+<div class="ap-po-details__icon-area">
+<div class="svg-icon order-bg-opacity-primary">
+<svg xmlns="http://www.w3.org/2000/svg" width="30.05" height="21.035" viewBox="0 0 30.05 21.035" class="svg replaced-svg">
+  <path id="ticket" d="M12.518,12.513a1.5,1.5,0,0,0-1.5,1.5V17.02a1.5,1.5,0,1,0,3.005,0V14.015A1.5,1.5,0,0,0,12.518,12.513Zm18.03,1.5a1.5,1.5,0,0,0,1.5-1.5V6.5a1.5,1.5,0,0,0-1.5-1.5H3.5A1.5,1.5,0,0,0,2,6.5v6.01a1.5,1.5,0,0,0,1.5,1.5,1.5,1.5,0,1,1,0,3.005,1.5,1.5,0,0,0-1.5,1.5v6.01a1.5,1.5,0,0,0,1.5,1.5H30.548a1.5,1.5,0,0,0,1.5-1.5v-6.01a1.5,1.5,0,0,0-1.5-1.5,1.5,1.5,0,1,1,0-3.005Zm-1.5-2.735a4.508,4.508,0,0,0,0,8.474V23.03H14.02a1.5,1.5,0,0,0-3.005,0H5.005V19.755a4.508,4.508,0,0,0,0-8.474V8.005h6.01a1.5,1.5,0,1,0,3.005,0H29.045Z" transform="translate(-2 -5)" fill="#8231D3"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+                     <!-- STATUT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                        <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+
+<div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+<div class="overview-content w-100">
+<div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+<div class="ap-po-details__titlebar">
+<h1>825</h1>
+<p>New ticket</p>
+</div>
+<div class="ap-po-details__icon-area">
+<div class="svg-icon order-bg-opacity-secondary">
+<svg xmlns="http://www.w3.org/2000/svg" width="30.05" height="21.035" viewBox="0 0 30.05 21.035" class="svg replaced-svg">
+  <path id="ticket" d="M12.518,12.513a1.5,1.5,0,0,0-1.5,1.5V17.02a1.5,1.5,0,1,0,3.005,0V14.015A1.5,1.5,0,0,0,12.518,12.513Zm18.03,1.5a1.5,1.5,0,0,0,1.5-1.5V6.5a1.5,1.5,0,0,0-1.5-1.5H3.5A1.5,1.5,0,0,0,2,6.5v6.01a1.5,1.5,0,0,0,1.5,1.5,1.5,1.5,0,1,1,0,3.005,1.5,1.5,0,0,0-1.5,1.5v6.01a1.5,1.5,0,0,0,1.5,1.5H30.548a1.5,1.5,0,0,0,1.5-1.5v-6.01a1.5,1.5,0,0,0-1.5-1.5,1.5,1.5,0,1,1,0-3.005Zm-1.5-2.735a4.508,4.508,0,0,0,0,8.474V23.03H14.02a1.5,1.5,0,0,0-3.005,0H5.005V19.755a4.508,4.508,0,0,0,0-8.474V8.005h6.01a1.5,1.5,0,1,0,3.005,0H29.045Z" transform="translate(-2 -5)" fill="#5840FF"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+                     <!-- Card 2 End  -->
+                  </div>
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                  <!--   <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+
+
+
+
+
+                        <div class="overview-content w-100">
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.status }}</h1>
+                                 
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-secondary">
+                                    <img class="svg" src="img/svg/ticket-green1.svg" alt="img">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div> -->
+                     <!-- Card 2 End  -->
+                  {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+                  </div>
+
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     
+
+
+
+
+
+                       
+                     <!-- Card 2 End  -->
+                  </div>
+                  <div class="col-12">
+                  <!--   <div class="support-ticket-system">
+
+                        <!--<div class="breadcrumb-main breadcrumb-main--ticket justify-content-sm-between ">
+                           <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                              <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+                                 <h4 class="text-capitalize fw-500 breadcrumb-title">All Support Ticket</h4>
+                              </div>
+                           </div>
+                           <div class="action-btn">
+                              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ticket_modal">
+                                 <i class="fa fa-plus"></i>Add Ticket</a>
+
+                              <!-- Modal -->
+                             <!-- <div class="modal fade ticket_modal" id="ticket_modal" role="dialog" tabindex="-1" aria-hidden="true">
+                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content  radius-xl">
+                                       <div class="modal-body pb-sm-50 pb-30">
+                                          <div class="modal-header">
+                                             <h1>
+                                                Submit your Ticket
+                                             </h1>
+                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <img src="img/svg/x.svg" alt="x" class="svg">
+                                             </button>
+                                          </div>
+                                          <div class="ticket_modal-modal">
+                                             <form>
+                                                <div class="form-group">
+                                                   <label>Email</label>
+                                                   <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                   <label>Subject</label>
+                                                   <input type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                   <label>Priority</label>
+                                                   <input type="text" class="form-control" placeholder="High">
+                                                </div>
+                                                <div class="form-group">
+                                                   <label>Status</label>
+                                                   <input type="text" class="form-control" placeholder="Open">
+                                                </div>
+                                                <div class="form-group">
+                                                   <label>Description</label>
+                                                   <textarea class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="button-group d-flex pt-15">
+                                                   <button class="btn btn-primary btn-default btn-squared ">Submit ticket</button>
+                                                </div>
+                                             </form>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- Modal 
+
+                           </div>
+                        </div> -->
+
+                      <!--  <div class="support-form d-flex justify-content-between align-items-center flex-wrap">
+                           <div class="support-form__input">
+                              <div class="d-flex flex-wrap">
+                                 <div class="support-form__input-id">
+                                    <label>Id:</label>
+
+                                    
+
+                                 </div>
+                                 <div class="support-form__input-status">
+                                    <label>status:</label>
+
+                                    <div class="dm-select ">
+
+                                       <select name="select-search" class="select-search form-control ">
+                                          <option value="01">All</option>
+                                          <option value="02">Option 2</option>
+                                          <option value="03">Option 3</option>
+                                          <option value="04">Option 4</option>
+                                          <option value="05">Option 5</option>
+                                       </select>
+
+                                    </div>
+
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="support-form__search">
+                              <div class="support-order-search">
+                                 <form action="/" class="support-order-search__form">
+                                    <img src="img/svg/search.svg" alt="search" class="svg">
+                                    <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search" aria-label="Search">
+                                 </form>
+                              </div>
+                           </div>
+                           
+                        </div> -->
+                        
+                     </div>
+                  </div> 
+               </div>
+               <!-- ends: .row -->
+            </div>
+         </div>
+
+      </div>
+{% endblock %}

@@ -1,0 +1,122 @@
+
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Basket index{% endblock %}
+
+{% block body %}
+      <div class="contents " style="      margin: 0;
+      padding: 0;
+      text-align: left; background-color:white;">
+
+         <div class="container-fluid ">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="shop-breadcrumb">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title"></h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class=""><a href="#"><i class=""></i></a></li>
+                                 <li class="active" aria-current="page"></li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="checkout wizard6 global-shadow border-0 px-sm-50 px-20 pt-sm-50 py-30 mb-30 bg-white radius-xl w-100">
+               <div class="row justify-content-center">
+                  <div class="col-xl-8">
+                     <div class="checkout-progress-indicator content-center">
+                        <div class="checkout-progress">
+                            <div class="step current" id="1">
+                              <span><img src="{{ asset('FrontOffice/img/Icons/hopital.png') }}" alt=""></span>
+                              <span>Facility</span>
+                           </div>
+                           <div class="current"><img class="svg" src="{{ asset('FrontOffice/img/Icons/checkout.svg') }}" alt=""></div>
+                            <div class="step current" id="1">
+                              <span><img src="{{ asset('FrontOffice/img/Icons/time-and-calendar.png') }}" alt=""></span>
+                              <span>Appointment</span>
+                           </div>
+                           <div class="current"><img class="svg" src="{{ asset('FrontOffice/img/Icons/checkout.svg') }}" alt=""></div>
+                            <div class="step current" id="1">
+                              <span><img src="{{ asset('FrontOffice/img/Icons/don-de-sang.png') }}" alt=""></span>
+                              <span style="color:#A40E1C;"><strong>Donation</strong></span>
+                           </div>
+
+                        </div>
+                     </div><!-- checkout -->
+                     <div class="row justify-content-center">
+                        <div class="col-xl-7 col-lg-8 col-sm-10">
+                           <div class="card checkout-shipping-form shadow-none px-30 pt-2 pb-30 border-color" style=" border-color:#A40E1C;">
+                              <div class="card-header border-bottom-0 align-content-start pb-sm-0 pb-1 px-0">
+                                 <h4 class="fw-500">3. Informations Sum </h4>
+                              </div>
+                              <div class="card-body px-0 pb-0">
+                                 <div class="edit-profile__body">
+                                      <div class="row">
+                                          <div class="col"  style="margin-left:55px;">
+                                             <span class="ticket-details-contact__ift-rule"><i class="fa-solid fa-user" style="margin-right:10px;color:#A40E1C;"></i>Patient's Name</span>
+                                             <div class="ticket-details-contact__ift-namTitle">
+                                                 <h6>{{ emergency.user.name }}</h6>
+                                             </div>
+                                          </div>
+                                          <div class="col" style="margin-left:200px;">
+                                             <span class="ticket-details-contact__ift-rule"><i class="fa-solid fa-envelope" style="margin-right:10px;color:#A40E1C;"></i>Patient's E-mail</span>
+                                             <div class="ticket-details-contact__ift-namTitle">
+                                                <h6>{{ emergency.user.email }}</h6>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <br>
+                                       <div class="row">
+                                          <div class="col" style="margin-left:55px;">
+                                             <span class="ticket-details-contact__ift-rule"><i class="fa-solid fa-hospital" style="margin-right:10px;color:#A40E1C;"></i>Facility</span>
+                                             <div class="ticket-details-contact__ift-namTitle">
+                                                 <h6>{{ facility.name }}</h6>
+                                             </div>
+                                          </div>
+                                          
+                                          <div class="col"  style="margin-left:200px;">
+                                             <span class="ticket-details-contact__ift-rule"><i class="fa-solid fa-calendar-days" style="margin-right:10px;color:#A40E1C;"></i>Appointment</span>
+                                             <div class="ticket-details-contact__ift-namTitle">
+                                                <h6>{{ appointment.rdv|date('Y-m-d H:i:s') }}</h6>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <br>
+                                       <div class="row">
+                                          <div class="col" style="margin-left:55px;">
+                                             <span class="ticket-details-contact__ift-rule"><i class="fa-solid fa-user" style="margin-right:10px;color:#A40E1C;"></i>Donor's Name</span>
+                                             <div class="ticket-details-contact__ift-namTitle">
+                                                 <h6>{{ appointment.user.name }}</h6>
+                                             </div>
+                                          </div>
+                                          <div class="col"  style="margin-left:200px;">
+                                             <span class="ticket-details-contact__ift-rule"><i class="fa-solid fa-envelope" style="margin-right:10px;color:#A40E1C;"></i>Donor's E-mail</span>
+                                             <div class="ticket-details-contact__ift-namTitle">
+                                                <h6>{{ appointment.user.email }}</h6>
+                                             </div>
+                                          </div>
+                                       </div>
+                                                                              <div class="d-flex pt-15 justify-content-md-end justify-content-center">
+                                          <a href="{{path('app_confirm_donation')}}" class="btn btn-default btn-squared text-capitalize text-white" style=" background-color:#A40E1C;">Confirm<i class="ms-10 me-0 las la-arrow-right"></i></a>
+                                       </div>
+                              </div>
+                           </div><!-- ends: card -->
+                        </div><!-- ends: col -->
+                     </div>
+                  </div><!-- ends: col -->
+               </div>
+            </div><!-- End: .global-shadow-->
+         </div>
+
+
+      </div>
+{% endblock %}

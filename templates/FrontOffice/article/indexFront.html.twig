@@ -1,0 +1,131 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Articles {% endblock %}
+
+{% block body %}
+  
+    
+    {#{{ form_start(formSearch) }}
+    {{ form_row(formSearch.title) }}
+    {{ form_row(formSearch.category) }}
+    <button type="submit">Rechercher</button>
+    {{ form_end(form) }}
+     {% if results|length > 0 %}
+        <ul>
+        {% for article in results %}
+            <li>{{ article.title }} - {{ article.articleCategory }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun résultat trouvé</p>
+    {% endif %}#}
+
+   
+<!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+    <div class="banner" style="background-color: #A40E1C; margin-top:60px; margin-bottom:50px;" >
+      <div class="container ">
+         <div class="row align-items-center justify-content-center"  >
+               <div class="col-sm-5 text-center" >
+                  <p style="color: white;">Exclusive Articles for Blood Donors: </p>
+                  <p style="color: white;">Rewarding Your Generosity with Creating your own Article. </p>
+                  <h1 style="color: white;">Write Now!"</h1>
+                  <button class="btn mt-4" style="background-color: white;color: #A40E1C; transition: background-color 0.5s ease, color 0.5s ease;">Check Our Articles</button>
+               </div>
+               <div class="col-sm-7 d-flex justify-content-end">
+                     <img src="{{ asset('FrontOffice/img/343062909_612861187557850_6809086480378488526_n.png') }}" style="width:40%;" class="img-fluid" alt="">
+               </div>
+         </div>
+      </div>
+   </div>
+
+    <div class="container" data-aos="fade-up">
+            
+        <div class="row">
+            <div class="col-4">
+                <!-- Sidebar code goes here -->
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Search</h3>
+                    <div class="sidebar-item search-form">
+                        <form action="">
+                            <input type="text">
+                            <button type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div><!-- End sidebar search formn-->
+
+                    <h3 class="sidebar-title">Categorie</h3>
+                    <div class="sidebar-item categories">
+                        <ul>
+                         {% for article in articles %}
+                            <li><a href="#">{{article.articleCategory.name}}</a></li>
+                         {% endfor %}
+                        </ul>
+                    </div><!-- End sidebar categories-->
+                </div><!-- End sidebar -->
+            </div>
+      
+           
+          <div class="col-lg-8 entries">
+          
+            {% for article in articles %}
+               <article class="entry">
+
+               <div class="entry-img">
+                  <img src="{{ asset('/FrontOffice/img/dnt.png') }}" alt="" class="img-fluid">
+               </div>
+
+               <h2 class="entry-title">
+                  <a href="blog-single.html">{{ article.title }}</a>
+               </h2>
+
+               <div class="entry-meta">
+                  <ul>
+                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ article.articleCategory.name }}</a></li>
+                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</time></a></li>
+                     <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                  </ul>
+               </div>
+
+               <div class="entry-content">
+                  <p>
+                    {{ article.content |slice(0, 50)}}
+                  </p>
+                  <div class="read-more">
+                     <a href="{{ path('app_article_showfront', {'id': article.id}) }}" style="background:#A40E1C;">Read More</a>
+                  </div>
+               </div>
+
+               </article><!-- End blog entry -->
+
+         {% endfor %}
+         <li class="dm-pagination__item">
+      <div class="paging-option">
+               {# add pagination links #}
+               {% if currentPage > 1 %}
+                  <a href="{{ path('app_article_index_Front', {'page': currentPage - 1}) }}">Previous</a>
+               {% endif %}
+
+               {% for page in 1..totalPages %}
+                  {% if page == currentPage %}
+                     {{ page }}
+                  {% else %}
+                     <a href="{{ path('app_article_index_Front', {'page': page}) }}">{{ page }}</a>
+                  {% endif %}
+               {% endfor %}
+
+               {% if currentPage < totalPages %}
+                  <a href="{{ path('app_article_index_Front', {'page': currentPage + 1}) }}">Next</a>
+               {% endif %}
+         
+      </div>
+   </li>
+          </div><!-- End blog entries list -->
+
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    
+{% endblock %}

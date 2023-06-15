@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+       <!-- endinject -->
+
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <style>
+body {
+	 background: #dd3f3e;
+	 font-family: 'Montserrat', sans-serif;
+	 margin: 0;
+	 padding: 0;
+}
+ .ticket {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 width: 700px;
+	 margin: 20px auto;
+}
+ .ticket .stub, .ticket .check {
+	 box-sizing: border-box;
+}
+ .stub {
+	 background: #ef5658;
+	 height: 250px;
+	 width: 250px;
+	 color: white;
+	 padding: 20px;
+	 position: relative;
+}
+ .stub:before {
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 border-top: 20px solid #dd3f3e;
+	 border-left: 20px solid #ef5658;
+	 width: 0;
+}
+ .stub:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 right: 0;
+	 border-bottom: 20px solid #dd3f3e;
+	 border-left: 20px solid #ef5658;
+	 width: 0;
+}
+ .stub .top {
+	 display: flex;
+	 align-items: center;
+	 height: 40px;
+	 text-transform: uppercase;
+}
+ .stub .top .line {
+	 display: block;
+	 background: #fff;
+	 height: 40px;
+	 width: 3px;
+	 margin: 0 20px;
+}
+ .stub .top .num {
+	 font-size: 30px;
+}
+ .stub .top .num span {
+	 color: #000;
+}
+ .stub .number {
+	 position: absolute;
+	 left: 40px;
+	 font-size: 150px;
+}
+ .stub .invite {
+	 position: absolute;
+	 left: 150px;
+	 bottom: 45px;
+	 color: #000;
+	 width: 20%;
+}
+ .stub .invite:before {
+	 content: '';
+	 background: #fff;
+	 display: block;
+	 width: 40px;
+	 height: 3px;
+	 margin-bottom: 5px;
+}
+ .check {
+	 background: #fff;
+	 height: 250px;
+	 width: 450px;
+	 padding: 40px;
+	 position: relative;
+}
+ .check:before {
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 border-top: 20px solid #dd3f3e;
+	 border-right: 20px solid #fff;
+	 width: 0;
+}
+ .check:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 border-bottom: 20px solid #dd3f3e;
+	 border-right: 20px solid #fff;
+	 width: 0;
+}
+ .check .big {
+	 font-size: 80px;
+	 font-weight: 900;
+	 line-height: .8em;
+}
+ .check .number {
+	 position: absolute;
+	 top: 50px;
+	 right: 50px;
+	 color: #ef5658;
+	 font-size: 40px;
+}
+ .check .info {
+	 display: flex;
+	 justify-content: flex-start;
+	 font-size: 12px;
+	 margin-top: 20px;
+	 width: 100%;
+}
+ .check .info section {
+	 margin-right: 50px;
+}
+ .check .info section:before {
+	 content: '';
+	 background: #ef5658;
+	 display: block;
+	 width: 40px;
+	 height: 3px;
+	 margin-bottom: 5px;
+}
+ .check .info section .title {
+	 font-size: 20px;
+	 text-transform: uppercase;
+}
+ 
+
+        </style>    
+
+    </head>
+    <body class="">
+ <div class="ticket">
+  <div class="stub">
+    <div class="top">
+      <span class="admit">BloodBond</span>
+      <span class="line"></span>
+      <span class="num">
+        Price
+        <span>{{ ticket.price }} Dt</span>
+      </span>
+    </div>
+    
+    <div class="invite">
+      {{ event.location }}
+    </div>
+  </div>
+  <div class="check">
+    <div class="big">
+      {{ event.title }}
+    </div>
+    <div class="number">#{{ achat.id }}</div>
+    <div class="info">
+      <section>
+        <div class="title">{{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }}</div>
+        <div>event date</div>
+      </section>
+      <section>
+        <div class="title">{{ event.startTime|date('H:i') }}</div>
+        <div>starting time</div>
+      </section>
+      <section>
+        <div class="title">{{ event.endTime|date('H:i') }}</div>
+        <div>ending time</div>
+      </section>
+    </div>
+  </div>
+</div>
+    </body>
+</html>

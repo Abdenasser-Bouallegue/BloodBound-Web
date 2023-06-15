@@ -1,0 +1,144 @@
+
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+   
+    <div class="blog-page2" style="padding:70px">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+
+                     <div class="breadcrumb-main">
+                        <h3 class="text-capitalize breadcrumb-title">Event Details</h3>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                           
+                  
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-lg-12 col-12">
+                     <div class="blog-details-thumbnail">
+                        <img class="svg w-100"  src="{{ asset('uploads/eventsImg/' ~ event.image) }}" alt="Image">
+                     </div>
+                     <article class="blog-details">
+                        <div class="blog-details-content">
+                           <h1 class="main-title mb-30">{{ event.title }}</h1>
+                           <ul class="blog-details-meta">
+                             
+                            {# <li class="author-name">
+                                 <a  rel="bookmark">
+                                    <time class="entry-date published updated" datetime="2022-01-25T10:55:00+06:00">{{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }}</time>
+                                 </a>
+                              </li>
+                              <li class="author-name">
+                                 <a  rel="bookmark">
+                                    <time class="entry-date published updated" datetime="2022-01-25T10:55:00+06:00">{{ event.startTime|date('H:i') }}</time>
+                                 </a>
+                              </li>
+                              <li class="author-name">
+                                 <a  rel="bookmark">
+                                    <time class="entry-date published updated" datetime="2022-01-25T10:55:00+06:00">{{ event.endTime|date('H:i') }}</time>
+                                 </a>
+                              </li>#}  
+                              
+                              
+                           </ul>
+                          
+                           <div class="blog-body">
+                              <p class="mb-20">
+                                 {{ event.description }}
+                              </p>
+                              </ul>
+                           </div>
+                          
+                        </div>
+
+                     </article>
+                     <div class="row">
+                     <div class="col-xl-3 col-lg-4 col-md-6 mb-25">
+                        <figure class="feature-cards4">
+                           <img class="svg" src="/FrontOffice/img/svg/Status.svg" alt="">
+                           <figcaption>
+                              <h2>{{ event.status }}</h2>
+                              <p>Event Status</p>
+                              
+                           </figcaption>
+                        </figure>
+                        
+                     </div>
+                     <div class="col-xl-3 col-lg-4 col-md-6 mb-25">
+                        <figure class="feature-cards4">
+                           <img class="svg" src="/FrontOffice/img/svg/Locationn.svg" alt="">
+                           <figcaption>
+                              <h2>{{ event.location }}</h2>
+                              <p>Event Location</p>
+                              
+                           </figcaption>
+                        </figure>
+                     </div>
+                     <div class="col-xl-3 col-lg-4 col-md-6 mb-25">
+                        <figure class="feature-cards4">
+                           <img class="svg" src="/FrontOffice/img/svg/calender.svg" alt="">
+                           <figcaption>
+                              <h2>{{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }}</h2>
+                              <p>Event Date</p>
+                              
+                           </figcaption>
+                        </figure>
+                     </div>
+                     
+                     <div class="col-xl-3 col-lg-4 col-md-6 mb-25">
+                        <figure class="feature-cards4">
+                           <img class="svg" src="/FrontOffice/img/svg/time.svg" alt="">
+                           <figcaption>
+                              <h2>{{ event.startTime|date('H:i') }} - {{ event.endTime|date('H:i') }}</h2>
+                              
+                              <p>Event Starting&Ending Time</p>
+                              
+                           </figcaption>
+                        </figure>
+                     </div>
+
+                     <div class="action-btn">
+                        <a  href="{{  path('app_ticket_show', {'id': event.id})  }}"  class="btn px-15 btn-primary" style="background: #C0272D ;" > <i class="las la-plus fs-16"></i>Consult Event Ticket</a>
+                     </div>
+
+                     
+                                                          
+                  </div>
+
+      
+{# <a href="{{ path('app_ticket_show', {'id': event.ticket.id}) }}">
+                                                <button class="btn btn-default btn-squared color-light btn-outline-light px-20 "><i class="fa-solid fa-pen-to-square"></i>
+                                                   Add New Product
+                                                </button>
+                                            </a>   #}
+
+
+
+                     
+                  </div>
+               </div>
+               <!-- ends: .row -->
+            </div>
+            
+         </div>
+
+    <table class="table">
+        <tbody>
+ 
+        </tbody>
+    </table>
+
+
+    
+
+   
+{% endblock %}

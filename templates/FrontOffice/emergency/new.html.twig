@@ -1,0 +1,67 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}New Emergency{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="banner" style="background-color: #A40E1C;margin-top: 80px">
+                <div class="container ">
+                    <div class="row align-items-center justify-content-center" >
+                        <div class="col-sm-5 text-center">
+                            <p style="color: white;margin-bottom: 40px;font-size:18px;"></p>
+                            <p style="color: white;margin-bottom: 40px;font-size:18px;">Emergencies don't wait, so let's not hesitate to Donate </p>
+                            <h1 style="color: white;margin-bottom: 40px;">BloodBound is Your Best Choice</h1>
+
+                        </div>
+                        <div class="col-sm-7 d-flex justify-content-end">
+                            <img src="{{ asset('FrontOffice/img/svg/amb.svg') }}" style="width:45%;" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="shop-breadcrumb">
+
+                    <div class="breadcrumb-main">
+
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class=" checkout wizard8 global-shadow border-0 px-sm-50 px-20 mb-30 bg-white radius-xl w-100">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5">
+                            <div class="checkout-progress-indicator ">
+
+                                <div class="card-header border-bottom-0">
+                                    <h1 class="text-capitalize fw-500 breadcrumb-title gradient-text"><strong>Add Emergency</strong></h1>
+                                    <br>
+                                        <img class="svg w-100" src=" /FrontOffice/img/svg/emergency2.svg" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-sm-10">
+                            <div class="card checkout-shipping-form shadow-none h-100vh">
+                                <div class="card-body p-0">
+                                    <div class="edit-profile__body">
+                                        {{ include('FrontOffice/emergency/_form.html.twig') }}
+                                    </div>
+                                </div>
+                            </div><!-- ends: card -->
+                        </div><!-- ends: col -->
+                    </div>
+                </div><!-- ends: col -->
+            </div>
+        </div><!-- End: .global-shadow-->
+    </div>
+{% endblock %}

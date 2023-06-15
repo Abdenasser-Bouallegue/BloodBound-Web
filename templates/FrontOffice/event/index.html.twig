@@ -1,0 +1,158 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Users List{% endblock %}
+
+{% block body %}
+      <div class="blog-page2" style="padding:90px">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+
+                     <div class="breadcrumb-main">
+                        <h3 class="text-capitalize breadcrumb-title">Events</h3>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+ <div class="banner" style="background-color: #A40E1C;">
+                     <div class="container ">
+                        <div class="row align-items-center justify-content-center" >
+                              <div class="col-sm-5 text-center">
+                                 <p style="color: white;">Exclusive Events for Blood Donors:  </p>
+                                 <p style="color: white;">Making People More Aware About Blood Donation </p>
+                                 <h1 style="color: white;">"Buy Your Ticket Now!"</h1>
+                                 
+                              </div>
+                              <div class="col-sm-7 d-flex justify-content-end">
+                                    <img src="{{ asset('FrontOffice/img/343417593_542167848115138_11096284149008586_n.png') }}" style="width:50%;" class="img-fluid" alt="">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+                   {% for event in events %}
+                    
+                  <div class="col-xxl-4 col-lg-4 col-md-6 mb-25">
+                 
+                     <div class="blog-card blog-card--2" style="border-style: solid; border-color: lightgray;">
+                     
+                        <div class="blog-card__thumbnail">
+                           <a href="#">
+                              <img class="svg w-100"  src="{{ asset('uploads/eventsImg/' ~ event.image) }}" alt="Image">
+                           </a>
+                        </div>
+                        <div class="blog-card__details pt-1 pb-25 px-25">
+                           <div class="blog-card__content">
+                              <div class="blog-card__header-top d-flex justify-content-between">
+                                 {# <div class="category">{{ event.startTime|date('H:i') }}</div>
+                                 <div class="category">{{ event.endTime|date('H:i') }}</div> #}
+                                 <div class="date">{{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }}</div>
+                              </div>
+                              
+                              <h4 class="blog-card__title">
+                                 <a href="#" class="entry-title" rel="bookmark">{{ event.title }}</a>
+                              </h4>
+                             {# <p>{{ event.description }}</p> #}
+                           </div>
+                           <div class="blog-card__meta">
+                              <div class="blog-card__meta-profile">
+                                 <img src="/FrontOffice/img/svg/location1.svg" alt="location" class="svg">
+                                 <span>{{ event.location }}</span>
+                              </div>
+                            {# <div class="blog-card__meta-profile">
+                                 
+                                 <span>{{ event.status }}</span>
+                              </div> #} 
+                              <div class="blog-card__meta-count">
+                              
+                                 <ul>
+                                    
+                                 </ul>
+                              </div>
+                           </div>
+                            <div class="ap-button account-profile-cards__button button-group d-flex justify-content-center flex-wrap pt-20">
+                                        <a href="{{ path('app_event_show', {'id': event.id}) }}" class="border text-capitalize px-25 color-gray transparent radius-md">
+                                            <i class="fa-solid fa-hand-heart">Learn More</i>
+                                        </a>                                              
+                                    </div>
+
+                        </div>
+                       
+                     </div>
+                    
+                  </div>
+                   {% endfor %}
+                   <li class="dm-pagination__item">
+      <div class="paging-option">
+               {# add pagination links #}
+               {% if currentPage > 1 %}
+                  <a href="{{ path('app_event_index', {'page': currentPage - 1}) }}">Previous</a>
+               {% endif %}
+
+               {% for page in 1..totalPages %}
+                  {% if page == currentPage %}
+                     {{ page }}
+                  {% else %}
+                     <a href="{{ path('app_event_index', {'page': page}) }}">{{ page }}</a>
+                  {% endif %}
+               {% endfor %}
+
+               {% if currentPage < totalPages %}
+                  <a href="{{ path('app_event_index', {'page': currentPage + 1}) }}">Next</a>
+               {% endif %}
+         
+      </div>
+   </li>
+                  
+               
+                 
+                 
+                  
+                  
+                  
+                 
+                  
+                 
+               
+                  <div class="col-12">
+                     <div class="d-flex justify-content-end mt-1 mb-50">
+
+                      {#<nav class="dm-page ">
+                           <ul class="dm-pagination d-flex">
+                              <li class="dm-pagination__item">
+                                 <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-left"></span></a>
+                                 <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
+                                 <a href="#" class="dm-pagination__link active"><span class="page-number">2</span></a>
+                                 <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
+                                 <a href="#" class="dm-pagination__link pagination-control"><span class="page-number">...</span></a>
+                                 <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
+                                 <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-right"></span></a>
+                                 <a href="#" class="dm-pagination__option">
+                                 </a>
+                              </li>
+                              <li class="dm-pagination__item">
+                                 <div class="paging-option">
+                                    <select name="page-number" class="page-selection">
+                                       <option value="20">20/page</option>
+                                       <option value="40">40/page</option>
+                                       <option value="60">60/page</option>
+                                    </select>
+                                 </div>
+                              </li>
+                           </ul>
+                        </nav> #}
+
+
+                     </div>
+                  </div>
+               </div>
+               <!-- ends: .row -->
+            </div>
+         </div>
+
+      </div>
+{% endblock %}

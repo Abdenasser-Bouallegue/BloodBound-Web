@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProductCategory index{% endblock %}
+
+{% block body %}
+
+         <div class="container-fluid ">
+            <div class="row">
+               <div class="col-lg-12">
+
+                  <div class="breadcrumb-main user-member justify-content-sm-between ">
+                     <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                        <div class="d-flex align-items-center user-member__title justify-content-center me-sm-25">
+                           <h4 class="text-capitalize fw-500 breadcrumb-title">Categories</h4>
+                           
+                        </div>
+
+                        <form action="/" class="d-flex align-items-center user-member__form my-sm-0 my-2">
+                           <i class="fa-solid fa-magnifying-glass"></i>
+                           <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+
+                     </div>
+
+                     <div class="action-btn" >
+                        <a href="{{ path('app_product_category_new') }}" style="background:#A40E1C;"  class="btn px-15 btn-primary">
+                           <i class="las la-plus fs-16"></i>Add New Category</a>
+
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            
+            <div class="user-card2">
+               <div class="row">
+               {% for product_category in product_categories %}
+                  <div class="cos-xl-2 col-lg-4 mb-30 col-sm-6">
+                     <div class="card profile-card-3">
+                        <div class="background-block">
+                           <img src="{{ asset('BackOffice/img/cover.png') }}" alt="profile-sample1" class="background bg-opacity-success">
+                        </div>
+                        <div class="card-content mt-n25">
+                           <div class="card-content__body mt-n40 pt-0">
+                              <div class="profile-thumb-block position-relative d-flex justify-content-center">
+                                 <img src="{{ asset('BackOffice/img/800px-ClothingReadyWear.jpg') }}" alt="profile-image" class="profile wh-120 bg-opacity-primary">
+                              </div>
+                              <div class="ap-nameAddress pb-3 pt-10">
+                                 <h6 class="ap-nameAddress__title">{{ product_category.name }}</h6>
+                                 <p class="ap-nameAddress__subTitle fs-14 pt-1 m-0">{{ product_category.description }}</p>
+                              </div>
+                              <div class="ap-button account-profile-cards__button button-group d-flex justify-content-center flex-wrap m-n1">
+                                 <a href="{{ path('app_product_category_show', {'id': product_category.id}) }}">
+                                 <button type="button" class="border text-capitalize px-20 color-gray transparent">
+                                    Show</button>
+                                 </a>   
+                                 <a href="{{ path('app_product_category_edit', {'id': product_category.id}) }}">
+                                    <button type="button" class="border text-capitalize px-20 color-gray transparent follow">
+                                        Edit Category</button>
+                                 </a>     
+                                 
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+                                                        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+
+               </div>
+            
+            </div>
+
+         </div>
+
+{% endblock %}      

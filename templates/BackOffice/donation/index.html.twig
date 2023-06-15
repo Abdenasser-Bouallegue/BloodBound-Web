@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Donations List{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="breadcrumb-main user-member justify-content-sm-between ">
+                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                        <div class="d-flex align-items-center user-member__title justify-content-center me-sm-25">
+                            <h4 class="text-capitalize fw-500 breadcrumb-title">Donations list </h4>
+                        </div>
+
+                        <form action="/" class="d-flex align-items-center user-member__form my-sm-0 my-2">
+                            <img src="../img/svg/search.svg" alt="search" class="svg">
+                            <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by Name" aria-label="Search">
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="userDatatable global-shadow border-light-0 p-30 bg-white radius-xl w-100 mb-30">
+                    <div class="table-responsive">
+                        <table class="table mb-0 table-borderless">
+                            <thead>
+                            <tr class="userDatatable-header">
+                                <th>
+                                    <span class="userDatatable-title">ID</span>
+                                </th>
+                                <th>
+                                    <span class="userDatatable-title">Description</span>
+                                </th>
+                                <th>
+                                    <span class="userDatatable-title">DonLocation</span>
+                                </th>
+                                <th>
+                                    <span class="userDatatable-title">Email</span>
+                                </th>
+                                <th>
+                                    <span class="userDatatable-title">PhoneNumber</span>
+                                </th>
+                                <th>
+                                    <span class="userDatatable-title">DonationDate</span>
+                                </th>
+                                <th>
+                                    <span class="userDatatable-title float-end">action</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for donation in donations %}
+                                <tr>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            {{ donation.id }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            {{ donation.description }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            {{ donation.donLocation }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            {{ donation.email }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            {{ donation.phoneNumber }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            {{ donation.donationDate ? donation.donationDate|date('Y-m-d') : ''}}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                            <li>
+                                                <a href="{{ path('app_donation_show', {'id': donation.id}) }}" class="view">
+                                                    <span class="iconify" data-icon="uil:eye"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('app_donation_edit', {'id': donation.id}) }}" class="edit">
+                                                    <span class="iconify" data-icon="uil:edit"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="remove" href="{{ path('app_donation_delete', {'id': donation.id}) }}" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this donation?')) document.getElementById('delete-form-{{ donation.id }}').submit();">
+                                                    <form id="delete-form-{{ donation.id }}" method="post" action="{{ path('app_donation_delete', {'id': donation.id}) }}">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ donation.id) }}">
+                                                        <span class="iconify" data-icon="uil:trash-alt"></span>
+                                                    </form>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                            {% else %}
+                                <tr>
+                                    <td colspan="9">no records found</td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-end pt-30">
+
+                        <nav class="dm-page ">
+                            <ul class="dm-pagination d-flex">
+                                <li class="dm-pagination__item">
+                                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-left"></span></a>
+                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
+                                    <a href="#" class="dm-pagination__link active"><span class="page-number">2</span></a>
+                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span class="page-number">...</span></a>
+                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-right"></span></a>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="user-info-tab w-100 bg-white global-shadow radius-xl mb-50">
+                <div class="ap-tab-wrapper border-bottom ">
+                    <ul class="nav px-30 ap-tab-main text-capitalize" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade  show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-4 col-10">
+                                <div class="mt-sm-40 mb-sm-50 mt-20 mb-20">
+                                    <div class="user-tab-info-title mb-sm-40 mb-20 text-capitalize">
+                                        <h6 class="fw-600">Tickets Information</h6>
+                                    </div>
+                                    <div class="edit-profile__body">
+                                        <form>
+                                            <div class="form-group mb-25">
+                                                <label for="name1"></label>
+                                                {{ form_label(form.price, 'Insert price') }}
+                                                {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+                                                {{ form_errors(form.price) }}
+                                            </div>
+                                            <div class="form-group mb-25">
+                                                <label for="name1"></label>
+                                                {{ form_label(form.stock, 'Insert the stock') }}
+                                                {{ form_widget(form.stock, {'attr': {'class': 'form-control'}}) }}
+                                                {{ form_errors(form.stock) }}
+                                            </div>
+                                            <div class="form-group mb-25">
+                                                <label for="name1"></label>
+                                                {{ form_label(form.status, 'Choose a status') }}
+                                                {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+                                                {{ form_errors(form.status) }}
+                                            </div>
+                                                                                    
+                                            
+                                            {{ form_end(form) }}
+                                            <div class="button-group d-flex pt-sm-25 justify-content-md-end justify-content-start ">
+                                                <button class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm" style="background: darkred;">{{ button_label|default('Save') }}</button>
+
+
+
+
+
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block titl %}Ajouter Categorie {% endblock %}
+
+{% block body %}
+
+    <h1>Create new Categorie</h1>
+                         {{ form_start(form, { attr: {novalidate :'novalidate'}}) }}
+ 
+    
+                                <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.name,'Name') }}
+                                     </label><br>
+                                     {{ form_widget(form.name) }}
+                                    {{ form_errors(form.name) }}
+                                   
+                                 </div>
+                                 <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{ form_label(form.user,'User') }}
+                                     </label><br>
+                                     {{ form_widget(form.user) }}
+                                    {{ form_errors(form.user) }}
+                                   
+                                 </div>
+                               
+                                  <div class="mb-3">
+                               <a href="{{path('app_article_index_Front')}}"> {{ form_widget(form.save, { 'label': 'Ajouter','attr': {'class': 'btn-danger'} }) }}</a> 
+                                 </div>
+    
+      {{ form_end(form) }}
+    
+
+{% endblock %}

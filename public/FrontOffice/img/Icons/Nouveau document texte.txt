@@ -1,0 +1,19 @@
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="{{ asset('FrontOffice/img/Icons/vecteezy_bag-blood-donor-or-donation-comic-character-donate-blood_7385592-removebg-preview.png') }}" alt="">
+    </div>
+    <div class="col-sm-4">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Label du champ de saisie :</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Saisissez votre texte ici">
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <img src="{{ asset('FrontOffice/img/Icons/vecteezy_bag-blood-donor-or-donation-comic-character-donate-blood_7385982-removebg-preview.png') }}" alt="">
+    </div>
+  </div>
+</div>

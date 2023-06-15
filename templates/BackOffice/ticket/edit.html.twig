@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ticket{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="shop-breadcrumb">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Edit ticket</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page">checkout</li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class=" checkout wizard8 global-shadow border-0 px-sm-50 px-20 mb-30 bg-white radius-xl w-100">
+               <div class="row justify-content-center">
+                  <div class="col-xl-8">
+                     <div class="row justify-content-center">
+                        <div class="col-xl-5">
+                           <div class="checkout-progress-indicator ">
+                            
+                              <div class="card-header border-bottom-0">
+                                 <h4>Edit ticket</h4>
+                                
+                                 <div class="div">
+                                    
+                                    <img class="svg" src="{{ asset('/BackOffice/img/svg/ticketedit.svg') }}" alt="img">
+                                 </div>
+                              </div>
+                           </div><!-- checkout -->
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-sm-10">
+                           <div class="card checkout-shipping-form shadow-none h-100vh">
+                              <div class="card-header border-bottom-0 align-content-start pb-sm-0 pb-1 px-0">
+                                 <h4 class="fw-500">Please edit ticket</h4>
+                              </div>
+                              <div class="card-body p-0">
+                                 <div class="edit-profile__body">
+                                   {{ include('BackOffice/ticket/_form.html.twig') }} 
+                                 </div>
+                              </div>
+                           </div><!-- ends: card -->
+                        </div><!-- ends: col -->
+                     </div>
+                  </div><!-- ends: col -->
+               </div>
+            </div><!-- End: .global-shadow-->
+         </div>
+    
+
+    <a href="{{ path('app_ticket_index') }}">back to list</a>
+{% endblock %}

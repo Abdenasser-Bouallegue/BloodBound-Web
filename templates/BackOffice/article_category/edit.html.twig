@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ArticleCategory{% endblock %}
+
+{% block body %}
+    <h1>Edit ArticleCategory</h1>
+                            {{ form_start(form, {attr: {novalidate :'novalidate'}}) }}
+                                    <div class="mb-3">
+                                    <label  class="form-label">  
+                                     {{form_label(form.name,'Name')}}
+                                     </label><br>
+                                     {{form_widget(form.name)}}
+                                     {{form_errors(form.name)}}
+                                     {{ include('backoffice/article_category/_form.html.twig') }}
+
+    <a href="{{ path('app_article_category_index') }}">back to list</a>
+
+    {{ include('backoffice/article_category/_delete_form.html.twig') }}
+{% endblock %}

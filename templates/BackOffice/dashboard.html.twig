@@ -1,0 +1,194 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" />
+{% endblock %}
+
+{% block body %}
+
+         <div class="demo4 crm">
+            <div class="container-fluid">
+               <div class="row ">
+                  <div class="col-lg-12">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Demo 4</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Dashboard</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page"></li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="col-xxl-4 col-lg-6 mb-25">
+                     <div class="card banner-feature banner-feature--danial mb-0 h-100" style="background:#A40E1C;">
+                        <div class="banner-feature__shape">
+                          
+                           <img src="{{ asset('/BackOffice/img/Onboarding-amico.png') }}" style="max-width:300px;" alt="more-horizontal" class="svg">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                           <div class="card-body">
+                              <h1 class="banner-feature__heading color-white">Welcome    <br> {{ user.username }}! </h1>
+                              <p class="banner-feature__para ">You can start Managing </p>
+                              <button class="banner-feature__btn btn color-secondary btn-md px-20 radius-xs fs-15" type="button">Start Managment</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xxl-4 col-lg-6 mb-25">
+
+                     <div class="card performance-o border-0">
+                        <div class="card-header border-0 pb-0">
+                           <h6>Performance Overview </h6>
+                           <div class="card-extra">
+                              <div class="dropdown dropleft">
+                                 <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ asset('/BackOffice/img/svg/more-horizontal.svg') }}" alt="more-horizontal" class="svg">
+                                 </a>
+                                 <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body pt-sm-25 pb-25">
+                           <div class="performance-chart">
+
+                              <div class="">
+                                 <div class="performanceDetails"></div>
+                              </div>
+
+                           </div>
+                           <div class="performance-chart-labels">
+                              <ul>
+                                 <li class="label-target">Target</li>
+                                 <li class="label-completed">Completed</li>
+                                 <li class="label-in-progress">In Progress</li>
+                              </ul>
+                           </div>
+                           <!-- ends: .session-wrap -->
+                        </div>
+                        <!-- ends: .card-body -->
+                     </div>
+
+                  </div>
+                  <div class="col-xxl-4 mb-25">
+                     <div class="row">
+                        <div class="col-md-6">
+
+
+
+
+
+                           <div class="overview-content products-awards pt-20 pb-20 text-center radius-xl">
+                              <div class="d-inline-flex flex-column align-items-center justify-content-center">
+                                 <div style="background:#A40E1C;" class="revenue-chart-box__Icon order-bg-opacity-primary color-primary me-0">
+                                    <i style="color:#ffffff;" class="fa-solid fa-users"></i>
+                                 </div>
+                                 <div class="d-flex align-items-start flex-wrap">
+                                    <div>
+                                       <p class="mb-1 mb-0 color-gray">Total Users </p>
+                                       <h1>{{ numUsers }}</h1>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+
+
+
+
+                           <div class="overview-content products-awards pt-20 pb-20 text-center radius-xl">
+                              <div class="d-inline-flex flex-column align-items-center justify-content-center">
+                                 <div style="background:#A40E1C;" class="revenue-chart-box__Icon order-bg-opacity-info color-info me-0">
+                                    <i style="color:#ffffff;" class="fa-solid fa-boxes-stacked"></i>
+                                 </div>
+                                 <div class="d-flex align-items-start flex-wrap">
+                                    <div>
+                                       <p class="mb-1 mb-0 color-gray">Total Products</p>
+                                       <h1>{{ numProducts }}</h1>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+                                                <div class="col-md-6">
+
+
+
+
+
+                           <div class="overview-content products-awards pt-20 pb-20 text-center radius-xl">
+                              <div class="d-inline-flex flex-column align-items-center justify-content-center">
+                                 <div style="background:#A40E1C;" class="revenue-chart-box__Icon order-bg-opacity-primary color-primary me-0">
+                                    <i style="color:#ffffff;" class="fa-solid fa-champagne-glasses"></i>
+                                 </div>
+                                 <div class="d-flex align-items-start flex-wrap">
+                                    <div>
+                                       <p class="mb-1 mb-0 color-gray">Total Events </p>
+                                       <h1>{{ numEvents }}</h1>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+
+
+
+
+                           <div class="overview-content products-awards pt-20 pb-20 text-center radius-xl">
+                              <div class="d-inline-flex flex-column align-items-center justify-content-center">
+                                 <div style="background:#A40E1C;" class="revenue-chart-box__Icon order-bg-opacity-info color-info me-0">
+                                    <i style="color:#ffffff;" class="fa-solid fa-newspaper"></i>
+                                 </div>
+                                 <div class="d-flex align-items-start flex-wrap">
+                                    <div>
+                                       <p class="mb-1 mb-0 color-gray">Total Articles</p>
+                                       <h1>{{ numArticles }}</h1>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+                       {#<div class="col-12 mt-25">
+                           <div class="card banner-feature banner-feature--7 position-relative border-0 mb-0">
+                              <div class="d-flex justify-content-center">
+                                 <div class="card-body py-25 px-30">
+                                    <div class="div">
+                                       <h4 class="banner-feature__heading">Subscribe to our newsletter</h4>
+                                       <p class="banner-feature__para ">We notify you once any post is published</p>
+                                       <button type="button" class="btn btn-primary mt-15 btn-md">Subscribe</button>
+                                    </div>
+                                    <div class="banner-feature__shape position-absolute">
+                                       <img src="img/3d-message.png" alt="img">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>#} 
+                     </div>
+                  </div>
+               </div>
+               <!-- ends: .row -->
+            </div>
+         </div>
+
+    
+{% endblock %}

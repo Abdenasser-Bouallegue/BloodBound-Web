@@ -1,0 +1,164 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Ticket{% endblock %}
+
+{% block body %}
+   <div class="support-ticket mt-1" style="padding:80px">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Event Ticket</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="col col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between" style="border-style: solid; border-color: lightgray;">
+
+                        <div class="overview-content w-100" >
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between" >
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.price }}</h1>
+                                 <p>Ticket Price in Dt</p>
+                              </div>
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.pricePT }}</h1>
+                                 <p>Ticket Price in Pt</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-primary" style="background-color: lightgray;">
+                                       <img class="svg" src="{{ asset('FrontOffice/img/svg/price3.svg') }}" alt="img">
+                                       
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="col col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between" style="border-style: solid; border-color: lightgray;">
+
+                        <div class="overview-content w-100" >
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between" >
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.status }}</h1>
+                                 <p>Ticket Status</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-secondary" style="background-color: lightgray;">
+                                    <img class="svg" src="{{ asset('FrontOffice/img/svg/flag1.svg') }}" alt="img"> 
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+
+                  <div class="col col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between" style="border-style: solid; border-color: lightgray;">
+
+                        <div class="overview-content w-100" >
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between" >
+                              <div class="ap-po-details__titlebar">
+                                <h1>{{ count }}</h1>
+                                 <p>Sold Tickets</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-secondary" style="background-color: lightgray;">
+                                    <img class="svg" src="{{ asset('FrontOffice/img/svg/sold1.svg') }}" alt="img"> 
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+                     <div class="col col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between" style="border-style: solid; border-color: lightgray;">
+
+                        <div class="overview-content w-100" >
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between" >
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.stock }}</h1>
+                                 <p>Remaining Places</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-secondary" style="background-color: lightgray;">
+                                    <img class="svg" src="{{ asset('FrontOffice/img/svg/place.svg') }}" alt="img"> 
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                    
+
+                     </div>
+             
+                  </div>
+                  
+                
+            </div>
+            <div class="col col-sm-12 mb-30" style="border-style: solid; border-color: lightgray; border-radius: 10px;" >
+                     <div class="ticket-details-contact" >
+                        <h4>Need to help for better world</h4>
+                        
+                        
+                        <div class="ticket-details-contact__overview">
+                           <h4 class="ticket-details-contact__overview-title">Keep in Mind!</h4>
+                           <p>This Ticket once it's purchased cannot be refund, all the revenues generated from these event tickets will be donated to associations that support blood donation and help to organaize sensiblisation compains and to help raise awareness within youth. All your contributions are higly appreciated</p>
+                        </div>
+                     </div>
+                  </div>
+            <div class="col col-sm-12  mb-30">
+                     <div class="card banner-feature banner-feature--3" style="background: #B90100;">
+                        <div class="banner-feature__shape">
+                           <img src="{{ asset('img/svg/group9060.svg') }}" alt="img">
+                           
+                        </div>
+                        <div class="d-flex justify-content-center">
+                           <div class="card-body">
+                              <h1 class="banner-feature__heading color-white">Make A Difference, Buy A Ticket!</h1>
+                              
+                              <!--<button class="banner-feature__btn btn color-primary btn-md px-20 bg-white radius-xs fs-15 mt-sm-35 mt-15" type="button" style="color:darkred;">Buy Ticket</button>
+                           -->
+                           <div class="action-btn">
+                            <a href="{{ path('app_buyticketdt', {'id': ticket.id}) }}" class="btn px-15 " style="background: darkred; color:white; margin-bottom:10px;"> <i class="las la-plus fs-16"></i>Buy Ticket</a>
+                           </div>
+                           <div class="action-btn">
+                            <a href="{{ path('app_buyticketpt', {'id': ticket.id}) }}" class="btn  px-15" style="background-color: darkred; color:white;"><i class="las la-plus fs-16"></i> Buy Ticket Points</a>
+                           </div>
+                  </div>
+                           </div>
+                        </div>
+                        </div>
+                        <img src="{{ qrCodes }}" class="img-fluid rounded mb-4">
+                        </div>
+                     </div>
+                  </div>
+          
+    
+
+
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket{% endblock %}
+
+{% block body %}
+    <h1>Ticket Details</h1>
+
+    <table class="table">
+        <tbody>
+        <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+
+
+
+
+
+                        <div class="overview-content w-100">
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.id}}</h1>
+                                 <p>Ticket Id</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-primary" style="background-color: lightgray;">
+                                    
+                                    <img class="svg" src="{{ asset('BackOffice/img/svg/ticket1.svg') }}" alt="img">
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+
+
+
+
+
+                        <div class="overview-content w-100">
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.price}}</h1>
+                                 <p>Ticket Price</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-secondary" style="background-color: lightgray;">
+                                    
+                                    <img class="svg" src="{{ asset('BackOffice/img/svg/price3.svg') }}" alt="img">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+
+
+
+
+
+                        <div class="overview-content w-100">
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.stock}}</h1>
+                                 <p>Tickets Stock</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-warning" style="background-color: lightgray;">
+                                    
+                                    <img class="svg" src="{{ asset('BackOffice/img/svg/stock.svg') }}" alt="img">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+                  <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-30">
+                     <!-- Card 2 -->
+                     <div class="ap-po-details ap-po-details--ticket radius-xl d-flex justify-content-between">
+
+
+
+
+
+                        <div class="overview-content w-100">
+                           <div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
+                              <div class="ap-po-details__titlebar">
+                                 <h1>{{ ticket.status}}</h1>
+                                 <p>Ticket Status</p>
+                              </div>
+                              <div class="ap-po-details__icon-area">
+                                 <div class="svg-icon order-bg-opacity-success" style="background-color: lightgray;">
+                                    
+                                    <img class="svg" src="{{ asset('BackOffice/img/svg/notification.svg') }}" alt="img">
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- Card 2 End  -->
+                  </div>
+            <table class="table">
+           
+        </tbody>
+    </table>
+    <div class="action-btn">
+                              <a href="{{ path('app_ticket_editAdmin', {'id': ticket.id}) }}" class="btn btn-primary" style="background: darkred;">
+                                 <i class="fa fa-plus"></i>Edit Ticket</a>
+    </div>
+    
+    
+    
+
+    {#<a href="{{ path('app_ticket_editAdmin', {'id': ticket.id}) }}">edit</a> #}
+
+    
+    <div class="action-btn">
+    {{ include('BackOffice/ticket/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

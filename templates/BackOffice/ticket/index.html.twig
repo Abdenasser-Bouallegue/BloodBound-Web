@@ -1,0 +1,237 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket List{% endblock %}
+
+{% block body %}
+       <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+
+                  <div class="breadcrumb-main user-member justify-content-sm-between ">
+                     <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                        <div class="d-flex align-items-center user-member__title justify-content-center me-sm-25">
+                           <h4 class="text-capitalize fw-500 breadcrumb-title">Tickets Admin</h4>
+                           
+                        </div>
+
+                        
+
+                     </div>
+                     <div class="action-btn">
+                        <a href="{{path('app_ticket_newAdmin')}}" class="btn px-15 btn-primary" style="background: darkred;">
+                           <i class="las la-plus fs-16"></i>Add Ticket
+                        </a>
+                        
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="userDatatable global-shadow border-light-0 p-30 bg-white radius-xl w-100 mb-30">
+                     <div class="table-responsive">
+                        <table class="table mb-0 table-borderless">
+                           <thead>
+                              <tr class="userDatatable-header">
+                                 
+                                 <th>
+                                    <span class="userDatatable-title">Id</span>
+                                 </th>
+                                 
+
+                                 <th>
+                                    <span class="userDatatable-title">Price Dt</span>
+                                 </th>
+                                 <th>
+                                    <span class="userDatatable-title">Stock</span>
+                                 </th>
+                                 <th>
+                                    <span class="userDatatable-title">Status</span>
+                                 </th>
+                                 <th>
+                                    <span class="userDatatable-title">Price Pt</span>
+                                 </th>
+                                 <th>
+                                    <span class="userDatatable-title">Actions</span>
+                                 </th>
+                                 
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {% for ticket in tickets %}
+                              <tr>
+                                 <td>
+                                    <div class="userDatatable-content">
+                                       {{ ticket.id }}
+                                    </div>
+                                 </td>
+                                 <td>
+                                    <div class="userDatatable-content">
+                                       {{ ticket.price }} Dt
+                                    </div>
+                                 </td>
+                                 <td>
+                                    <div class="userDatatable-content">
+                                       {{ ticket.stock }}
+                                    </div>
+                                 </td>
+                                 <td>
+                                    <div class="userDatatable-content">
+                                       {{ ticket.status }}
+                                    </div>
+                                 </td>
+
+                                 <td>
+                                    <div class="userDatatable-content">
+                                       {{ ticket.pricePT }} Pt
+                                    </div>
+                                 </td>
+                                 
+                                 <td>
+                                    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                       <li>
+                                          <a href="{{ path('app_ticket_show_admin', {'id': ticket.id}) }}" class="view">
+                                             <span class="iconify" data-icon="uil:eye"></span>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="{{ path('app_ticket_editAdmin', {'id': ticket.id}) }}" class="edit">
+                                             <span class="iconify" data-icon="uil:edit"></span>
+                                          </a>
+                                       </li>
+                                       <li>
+                                               <a class="remove" href="{{ path('app_ticket_delete', {'id': ticket.id}) }}" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this item?')) document.getElementById('delete-form-{{ ticket.id }}').submit();">
+                                                   <form id="delete-form-{{ ticket.id }}" method="post" action="{{ path('app_ticket_delete', {'id': ticket.id}) }}">
+                                                      <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ticket.id) }}">
+                                                       <span class="iconify" data-icon="uil:trash-alt"></span>
+                                                   </form>
+
+                                                </a>
+                                                
+                                            </li>
+                                    </ul>
+                                 </td>
+                              </tr>
+
+                                    {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+
+                           </tbody>
+                        </table>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+            <h1>Ticket Statistics</h1>
+            <div class="col-xxl-4 col-lg-6 mb-25">
+
+                     <div class="card performance-o border-0">
+                        <div class="card-header border-0 pb-0">
+                           <h6>Ticket Status Statistics </h6>
+                           <div class="card-extra">
+                              <div class="dropdown dropleft">
+                                 <canvas id="ticket-chart" width="350" height="350"></canvas>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body pt-sm-25 pb-25">
+                           
+                           
+                           <!-- ends: .session-wrap -->
+                        </div>
+                        <!-- ends: .card-body -->
+            </div>
+
+           {#  <div class="col-xxl-4 col-lg-6 mb-25">
+
+                     <div class="card performance-o border-0">
+                        <div class="card-header border-0 pb-0">
+                           <h6>Ticket Purchase Statistics </h6>
+                           <div class="card-extra">
+                              <div class="dropdown dropleft">
+                                 <div style="width: 600px; height: 400px; margin: 0 auto;">
+                                    <canvas id="myChart"></canvas>
+                                 </div> 
+                              </div>
+                           </div>
+                        </div>
+                        <!-- ends: .card-header -->
+                        <div class="card-body pt-sm-25 pb-25">
+                           
+                           
+                           <!-- ends: .session-wrap -->
+                        </div>
+                        <!-- ends: .card-body -->
+            </div> #}
+
+            
+            {# <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-sm-6">
+                     <canvas id="ticket-chart" width="350" height="350"></canvas>
+                  </div>
+               </div>
+            </div> #}
+            
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+        // Initialize the chart
+            var ctx = document.getElementById('ticket-chart').getContext('2d');
+            var chart = new Chart(ctx, {
+               type: 'pie',
+               data: {
+                  labels: ['Available Tickets', 'Sold Out Tickets'],
+                  datasets: [{
+                    label: 'Ticket Status',
+                    data: [{{ availableTickets }}, {{ soldOutTickets }}],
+                    backgroundColor: [
+                        '#FF9090',
+                        '#D02525'
+                    ],
+                    borderColor: [
+                        '#FF9090',
+                        '#D02525'
+                    ],
+                    borderWidth: 1
+                  }]
+                },
+                  options: {
+                  responsive: false,
+                  width: 300,
+                  height: 300
+            }
+        });
+    </script>
+
+      <h1>Ticket Purchase Statistics</h1>
+      <div style="width: 600px; height: 400px; margin: 0 auto; background-color:white;">
+    <canvas id="myChart"></canvas>
+     </div> 
+
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+      var data = {{ data|raw }};
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+         </div>
+
+
+{% endblock %}

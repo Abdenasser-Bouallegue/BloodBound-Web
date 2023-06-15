@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProductCategory{% endblock %}
+
+{% block body %}
+
+         <div class="demo5 mt-30 mb-25">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xxl-12 mb-25" >
+                     <div class="card banner-feature--18 d-flex" style="background: #A40E1C;">
+                        <div class="container-fluid" >
+                           <div class="row" >
+                              <div class="col-xl-6" >
+                                 <div class="card-body px-25" >
+                                    <h1 class="banner-feature__heading color-white">This is the category section</h1>
+                                    <p class="banner-feature__para color-white" >
+                                    Here, you have access to the category details and management options. 
+                                    You can view category details, delete a category, or navigate to the edit page to modify it as needed.
+                                    </p>
+                                    <div class="d-flex justify-content-sm-start justify-content-center">
+                                    <a href="{{ path('app_product_category_index', {'id': product_category.id}) }}">
+                                       <button class="banner-feature__btn btn btn-primary color-white btn-md px-20 radius-xs fs-15" style="background: #ffffff;" type="button"><span style="color:#A40E1C;"> Back to categories </span></button>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xl-6">
+                                 <div class="banner-feature__shape px-md-25 px-25 py-sm-0 pt-15 pb-30 d-flex justify-content-sm-end justify-content-center">
+                                    <img src="{{ asset('BackOffice/img/Checking boxes-cuate.png') }}" alt="img" class="svg">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+               </div>
+                  
+            </div>
+         </div>
+                <div class="col-lg-12">
+
+                  <div class="card card-Vertical card-default card-md mb-4">
+                     <div class="card-header">
+                        <h6 style="color:#A40E1C;">Category Details</h6>
+                     </div>
+                     <div class="card-body py-md-30">
+                        
+                           <div class="row">
+                              <div class="col-md-6 mb-25 ih-medium ip-gray radius-xs b-light px-15">
+                             
+                                 {{ product_category.name }}
+                              </div>
+                              <div class="col-md-6 mb-25 ih-medium ip-gray radius-xs b-light px-15">
+                                 {{ product_category.description }}
+                              </div>
+                              
+                                             <div class="product-item__button d-flex mt-20 flex-wrap">
+                                                <a href="{{ path('app_product_category_edit', {'id': product_category.id}) }}">
+                                                   <button class="btn btn-secondary btn-default btn-squared border-0 px-25 my-sm-0 my-2 me-10" style="background:#A40E1C; color:#FFFFFF;"><i class="fa-solid fa-pen-to-square"></i>
+                                                      Edit Product
+                                                   </button>
+                                                </a>       
+
+                                                {{ include('BackOffice/product_category/_delete_form.html.twig') }}
+                                               
+                                            
+                                                 
+                                             </div>
+                             
+                           </div>
+                        
+                     
+                  </div>
+
+                </div>
+
+{% endblock %}

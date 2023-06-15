@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+   <div class="blog-page2">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Blog Details</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Dashboard</a></li>
+                                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-lg-8 col-12">
+                     <div class="blog-details-thumbnail">
+                        <img src="{{ asset('FrontOffice/img/blog/blog-2.jpg') }}" alt="">
+                     </div>
+                     <article class="blog-details">
+                        <div class="blog-details-content">
+                           <h1 class="main-title mb-30">{{article.title}}</h1>
+                           <ul class="blog-details-meta">
+                              <li class="blog-author">
+                                 <a href="#">
+                                    <img src="{{ asset('FrontOffice/img/6.png') }}" alt="">
+                                 </a>
+                                 <a href="#">
+                                    <span>Rabbi Islam Rony</span>
+                                 </a>
+                              </li>
+                              <li class="author-name">
+                                 <a href="#" rel="bookmark">
+                                    <time class="entry-date published updated" datetime="2022-01-25T10:55:00+06:00">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</time>
+                                 </a>
+                              </li>
+                              <li class="blog-category">
+                                 <a href="#" rel="category tag">{{article.articleCategory}}</a>
+                              </li>
+                              <li class="blog-read-time">8 mins read</li>
+                           </ul>
+                           <div class="blog-body">
+                              <p class="mb-20">
+                                {{article.content}}
+                              </p>
+
+                              <p class="mb-50">
+                                 {{article.featuredText }}
+                              </p>
+
+                              <blockquote class="blog-block-quote">
+                                 <div class="blog-block-quote__wrapper">
+                                    <div class="top-icon">
+                                       <img class="svg" src="img/svg/topSemicolon.svg" alt="">
+                                    </div>
+                                    <p>
+                                      {{article.slug}}
+                                    </p>
+                                 </div>
+                              </blockquote>
+                              <a href="{{ path('app_article_index') }}">back to list</a>
+
+                              
+                               {{ include('backoffice/article/_delete_form.html.twig') }}
+                             
+                           </div>
+                           
+                           
+                           <div class="blog-author-box media">
+                           {% for comment in article.comments %}
+                              <div class="auth-img">
+                                 <img class="w-70" src="{{ asset('FrontOffice/img/6.png') }}" alt="">
+                              </div>
+                              <div class="auth-details media-body">
+                                 <span>Written by</span>
+                                 <h2>Rabbi Islam Rony</h2>
+                                 
+                              {#} <p>{{ article.getPositiveVotesCount() }} people liked this article</p>
+           <p>{{ article.getNegativeVotesCount() }} people disliked this article</p>#}
+     <h2>List of comments</h2>
+               
+                  {#{% if comment.parent == null %}#}
+                     <h2> comment {{loop.index}} </h2>
+                           <p>{{comment.content}} <br> created At {{comment.createdAt|date("d/m/Y H:i")}}</p>
+                            <p>{{ comment.getPositiveVotesCount() }} people liked this comment</p>
+                            <p>{{ comment.getNegativeVotesCount() }} people disliked this comment</p>
+                           <a href="{{ path('app_comment_delete', {'id': comment.id}) }}">delete</a>
+                           {% endfor %}
+                           </div>
+                        </div>
+                        
+                     </article>
+                  </div>
+               </div>
+               <!-- ends: .row -->
+            </div>
+         </div>
+{% endblock %}

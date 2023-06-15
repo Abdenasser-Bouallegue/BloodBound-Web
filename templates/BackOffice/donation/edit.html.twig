@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Donation{% endblock %}
+
+{% block body %}
+    <h1>Edit Donation</h1>
+
+    {{ include('BackOffice/donation/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

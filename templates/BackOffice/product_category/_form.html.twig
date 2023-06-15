@@ -1,0 +1,30 @@
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    
+
+
+
+                                 <div class="form-basic">
+                                    <div class="form-group mb-25">
+                                                <label for="name1"></label>
+                                                <i class="fa-solid fa-layer-group fa-fw" style="color:#37474F;"></i>{{ form_label(form.name, 'Name') }}</span>
+                                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                                {{ form_errors(form.name) }}
+                                    </div>
+                                    <div class="form-group mb-25">
+                                                <label for="name1"></label>
+                                                <i class="fa-solid fa-file-lines fa-fw" style="color:#37474F;"></i><span>{{ form_label(form.description, 'Description') }}</span>
+                                                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                                {{ form_errors(form.description) }}
+                                    </div>
+
+                                 </div>
+
+
+                                <div class="button-group d-flex  justify-content-md-end ">
+                                        <a href="{{ path('app_product_category_index') }}">
+                                                <button class="btn btn-lg btn-primary btn-submit" style="background:#A40E1C;">
+                                                     {{ button_label|default('Update') }}
+                                                </button>
+                                        </a>         
+                                </div>
+{{ form_end(form) }}

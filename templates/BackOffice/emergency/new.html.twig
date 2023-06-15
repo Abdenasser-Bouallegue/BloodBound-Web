@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Emergency{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex align-items-center user-member__title mb-30 mt-30">
+                <h4 class="text-capitalize">Add Emergency</h4>
+            </div>
+        </div>
+    </div>
+    {{ include('emergency/_form.html.twig') }}
+{% endblock %}

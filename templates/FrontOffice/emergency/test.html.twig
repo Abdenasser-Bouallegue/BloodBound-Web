@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ event.title }}</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            background: #dd3f3e;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .ticket-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border: 1px solid #D5D1D1;
+            border-radius: 30px;
+            box-shadow: 50px 10px 50px 10px rgba(0,0,0,1);
+            position: relative;
+        }
+        .header-container {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            border-top: 20px solid #dd3f3e;
+            border-left: 20px solid #ef5658;
+            width: 0;
+        }
+        .ticket-title {
+            font-size: 56px;
+            margin-bottom: 10px;
+            color: black;
+            text-align: center;
+        }
+        .details-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            row-gap: 20px;
+            margin-bottom: 20px;
+        }
+        .details-label {
+            font-size: 20px;
+            font-weight: normal;
+            color: #BBB2B3;
+        }
+        .details-value {
+            font-size: 26px;
+            font-weight: bold;
+            color: #373737;
+        }
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .ticket-price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #944343;
+            margin-left: 10px;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+            .ticket-title {
+                font-size: 36px;
+            }
+            .details-container {
+                display: block;
+            }
+            .details-label {
+                font-size: 16px;
+            }
+            .details-value {
+                font-size: 20px;
+            }
+            .ticket-price {
+                font-size: 24px;
+            }
+        }
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            .ticket-container {
+                max-width: 500px;
+            }
+            .ticket-title {
+                font-size: 48px;
+            }
+            .details-label {
+                font-size: 18px;
+            }
+            .details-value {
+                font-size: 22px;
+            }
+            .ticket-price {
+                font-size: 30px;
+            }
+        }
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .ticket-container {
+                max-width: 800px;
+            }
+        }
+        @media screen and (min-width: 1025px) {
+            .ticket-container {
+                max-width: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="ticket-container">
+    <div class="header-container">
+        <h1 class="ticket-title">{{ event.title }}
+        </h1>
+    </div>
+    <div class="details-container">
+        <div class="details-label">Date:</div>
+        <div class="details-value">{{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }}</div>
+        <div class="details-label">Location:</div>
+        <div class="details-value">{{ event.location }}</div>
+        <div class="details-label">Event Timing:</div>
+        <div class="details-value">{{ event.startTime|date('H:i') }} - {{ event.endTime|date('H:i') }}</div>
+    </div>
+    <div class="price-container">
+        <div class="details-label">Ticket Price:</div>
+        <div class="ticket-price">{{ ticket.price }}Dt
+        </div>
+    </div>
+</div>
+</body>
+</html>
